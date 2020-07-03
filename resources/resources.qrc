@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="source">
+    <file>img/errorNotify.png</file>
+    <file>img/exitNotify.png</file>
+    <file>img/infoNotify.png</file>
+    <file>img/successNotify.png</file>
+    <file>img/warningNotify.png</file>
+  </qresource>
+</RCC>
