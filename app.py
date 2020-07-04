@@ -27,22 +27,22 @@ class mainWindow(QMainWindow):
         main.resize(1366,720)
         notf = notificator()
 
-        notf.critical(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=5)
+        notf.critical(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=5,onclick=self.left_click,ondoubleclick=self.double_click,onrightclick=self.right_click)
         notf.critical(Title="¡Hola Mundo 2",Message="¡Alerta! Variable \"Variable 2\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=10)
         notf.critical(Title="¡Hola Mundo 3",Message="¡Alerta! Variable \"Variable 3\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=15)
-        notf.critical(Title="¡Hola Mundo 4",Message="¡Alerta! Variable \"Variable 4\" ha lanzado una alerta",Parent=None,Align=TopLeft,progressBar=False,duracion=20)
+        notf.critical(Title="¡Hola Mundo 4",Message="¡Alerta! Variable \"Variable 4\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=20)
         notf.critical(Title="¡Hola Mundo 5",Message="¡Alerta! Variable \"Variable 5\" ha lanzado una alerta",Parent=self,Align=TopLeft,progressBar=False,duracion=25)
          
-        notf.sucess(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=None,Align=TopCenter,progressBar=False,duracion=5)
-        notf.sucess(Title="¡Hola Mundo 2",Message="¡Alerta! Variable \"Variable 2\" ha lanzado una alerta",Parent=None,Align=TopCenter,progressBar=False,duracion=10)
-        notf.sucess(Title="¡Hola Mundo 3",Message="¡Alerta! Variable \"Variable 3\" ha lanzado una alerta",Parent=None,Align=TopCenter,progressBar=False,duracion=15)
+        notf.sucess(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=self,Align=TopCenter,progressBar=False,duracion=5)
+        notf.sucess(Title="¡Hola Mundo 2",Message="¡Alerta! Variable \"Variable 2\" ha lanzado una alerta",Parent=self,Align=TopCenter,progressBar=False,duracion=10)
+        notf.sucess(Title="¡Hola Mundo 3",Message="¡Alerta! Variable \"Variable 3\" ha lanzado una alerta",Parent=self,Align=TopCenter,progressBar=False,duracion=15)
         notf.sucess(Title="¡Hola Mundo 4",Message="¡Alerta! Variable \"Variable 4\" ha lanzado una alerta",Parent=self,Align=TopCenter,progressBar=False,duracion=20)
-        notf.sucess(Title="¡Hola Mundo 5",Message="¡Alerta! Variable \"Variable 5\" ha lanzado una alerta",Parent=None,Align=TopCenter,progressBar=False,duracion=25)
+        notf.sucess(Title="¡Hola Mundo 5",Message="¡Alerta! Variable \"Variable 5\" ha lanzado una alerta",Parent=self,Align=TopCenter,progressBar=False,duracion=25)
     
-        notf.info(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=None,Align=TopRight,progressBar=False,duracion=5)
-        notf.info(Title="¡Hola Mundo 2",Message="¡Alerta! Variable \"Variable 2\" ha lanzado una alerta",Parent=None,Align=TopRight,progressBar=False,duracion=10)
+        notf.info(Title="¡Hola Mundo 1",Message="¡Alerta! Variable \"Variable 1\" ha lanzado una alerta",Parent=self,Align=TopRight,progressBar=False,duracion=5)
+        notf.info(Title="¡Hola Mundo 2",Message="¡Alerta! Variable \"Variable 2\" ha lanzado una alerta",Parent=self,Align=TopRight,progressBar=False,duracion=10)
         notf.info(Title="¡Hola Mundo 3",Message="¡Alerta! Variable \"Variable 3\" ha lanzado una alerta",Parent=self,Align=TopRight,progressBar=False,duracion=15)
-        notf.info(Title="¡Hola Mundo 4",Message="¡Alerta! Variable \"Variable 4\" ha lanzado una alerta",Parent=None,Align=TopRight,progressBar=False,duracion=20)
+        notf.info(Title="¡Hola Mundo 4",Message="¡Alerta! Variable \"Variable 4\" ha lanzado una alerta",Parent=self,Align=TopRight,progressBar=False,duracion=20)
         notf.info(Title="¡Hola Mundo 5",Message="¡Alerta! Variable \"Variable 5\" ha lanzado una alerta",Parent=self,Align=TopRight,progressBar=False,duracion=25)
     
     def resizeEvent(self,evt):
@@ -54,10 +54,19 @@ class mainWindow(QMainWindow):
     def closeEvent(self,evt):
         QApplication.quit()
 
+    def left_click(self,evt):
+        print("click izq")
+    
+    def right_click(self,evt):
+        print("click drch")
+    
+    def double_click(self,evt):
+        print("click double")
+
 
 if __name__ == "__main__":
     app = application([])
-    notificator(app)
+    notificator()
     main = mainWindow()
     main.show()
     app.exec()

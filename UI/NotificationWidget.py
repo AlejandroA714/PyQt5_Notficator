@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog, QGraphicsDropShadowEffect, QMainWindow
 from PyQt5.QtCore import Qt, pyqtSignal, QObject, QEvent,QRect, QPropertyAnimation, QAbstractAnimation, QTimer, QEvent
+from functools import partial
 from alingments import TopRight
 from resources import *
 
@@ -10,7 +11,6 @@ class notifySignals(QObject):
     right_click = pyqtSignal(object)
     double_click = pyqtSignal(object)
     close = pyqtSignal(object)
-    parent_resize = pyqtSignal()
 
 class UINotificationModal(QDialog):
 
@@ -161,6 +161,7 @@ class UINotificationModal(QDialog):
         self.btnExit = QtWidgets.QPushButton(self.MainFrame)
         self.btnExit.setGeometry(QtCore.QRect(345, 5, 24, 24))
         self.btnExit.setText("")
+        self.btnExit.setStyleSheet("border:0;")
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/source/img/exitNotify.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnExit.setIcon(icon1)
@@ -230,21 +231,26 @@ class UINotificationModal(QDialog):
         self.focus=False
      
     def mousePressEvent(self,evt):
-        self.clickCount = 1
+        if evt.buttons() == Qt.LeftButton:
+            self.clickCount = 0
+        if evt.buttons() == Qt.RightButton:
+            self.clickCount = 1    
 
     def mouseReleaseEvent(self,evt):
         from PyQt5.QtWidgets import QApplication
         from PyQt5.QtCore import QTimer
-        if self.clickCount == 1:
-            QTimer.singleShot(QApplication.doubleClickInterval(),self.perfomClickAction)
+        if self.clickCount == 1 or self.clickCount == 0:
+            QTimer.singleShot(QApplication.doubleClickInterval(),partial(self.perfomClickAction,evt))
        
     def mouseDoubleClickEvent(self,evt):
         self.clickCount = 2
-        print("2 click")
+        self.signals.double_click.emit(evt)
 
-    def perfomClickAction(self):
+    def perfomClickAction(self,evt):
+        if self.clickCount == 0:
+           self.signals.left_click.emit(evt)
         if self.clickCount == 1:
-           print("1 click")
+           self.signals.right_click.emit(evt)
 
     def resizeNotify(self):
         self.NotificationModal.setGeometry(self.coords(self.multiplier).x(),self.coords(self.multiplier).y(),391,128)
@@ -254,6 +260,9 @@ class UINotificationModal(QDialog):
         if not self.Parent is None:
             try:
                self.Parent.signals.resize.disconnect(self.resizeNotify)
+               self.signals.left_click.disconnect()
+               self.signals.right_click.disconnect()
+               self.signals.double_click.disconnect()
             except:
                 pass
 
