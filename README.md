@@ -9,6 +9,7 @@ pip install pyqt5-notificator
 use:
 
 fron notificator import notificator
+
 from notificator.alingmentes import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight # just import waht need
 
 instance
