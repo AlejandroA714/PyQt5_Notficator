@@ -8,7 +8,7 @@ setup(
   author = 'Alejandro Alejo',
   author_email = 'alejandroalejo714@gmail.com',
   url = 'https://github.com/Alejandro1407/PyQt5_Notficator',
-  download_url = 'https://github.com/Alejandro1407/PyQt5_Notficator/archive/1.0.0.tar.gz',
+  download_url = 'https://github.com/Alejandro1407/PyQt5_Notficator/archive/lastest.tar.gz',
   keywords = ['notifity','desktop'],
   install_requires=[
           'pyqt5',
