@@ -2,8 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QDialog, QGraphicsDropShadowEffect, QMainWindow
 from PyQt5.QtCore import Qt, pyqtSignal, QObject, QEvent,QRect, QPropertyAnimation, QAbstractAnimation, QTimer, QEvent
 from functools import partial
-from alingments import TopRight
-from resources import *
+from ..alingments import TopRight
+from ..resources import *
 
 class notifySignals(QObject):
 

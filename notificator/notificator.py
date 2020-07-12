@@ -1,9 +1,8 @@
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import QWidget, QDialog, QMainWindow, QApplication
-from alingments import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight,Align
-from UI import UINotificationModal  
-from utils import timer
+from notificator.alingments import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight, Align
+from notificator.UI import UINotificationModal
 
 class notificator(QObject):
 
@@ -16,7 +15,7 @@ class notificator(QObject):
             super(notificator,cls.__instance).__init__()
         return cls.__instance
 
-    def __init__(self,QApp:QApplication=None):
+    def __init__(self):
         if not self.__instanced:
             self.UIContainer = dict()
             self.UIContainer[TopLeft] = dict()

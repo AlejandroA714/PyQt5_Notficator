@@ -1,8 +1,8 @@
 from distutils.core import setup
 setup(
-  name = 'pytqt5_notificator',
-  packages = ['notificator'],
-  version = '1.0.0',
+  name = 'pyqt5-notificator',
+  packages = ['notificator','notificator.alingments','notificator.resources','notificator.UI'],
+  version = '1.0.10',
   license='MIT',
   description = 'pyqt5_notificator is a module to generate pyqt5 desktop notifications',
   author = 'Alejandro Alejo',
@@ -34,8 +34,6 @@ setup(
     'Programming Language :: Python :: 3.5',
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.8.2',
-    'Programming Language :: Python :: 3.8.3',
+    'Programming Language :: Python :: 3.8'
   ],
 )
