@@ -2,6 +2,17 @@
 
 A module create to generate pyqt5 desktop notification
 
-try it using:
+installing using
 
-pyton app.py
+pip install pyqt5-notificator
+
+use:
+
+fron notificator import notificator
+from notificator.alingmentes import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight # just import waht need
+
+instance
+
+noft = notificator()
+
+noft.critical("Title","Message",parent,Align,progressBar,duraccion,onclick,onleftclick,onrightclick)
