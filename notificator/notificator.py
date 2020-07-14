@@ -3,6 +3,7 @@ from PyQt5.QtCore import QObject
 from PyQt5.QtWidgets import QWidget, QDialog, QMainWindow, QApplication
 from notificator.alingments import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight, Align
 from notificator.UI import UINotificationModal
+from notificator.resources import *
 
 class notificator(QObject):
 
@@ -24,6 +25,7 @@ class notificator(QObject):
             self.UIContainer[BottomLeft] = dict()
             self.UIContainer[BottomCenter] = dict()
             self.UIContainer[BottomRight] = dict()
+            self.importFonts()
             self.__instanced = True
 
     def critical(self,Title:str,Message:str,Parent:QMainWindow=None,Align:Align=TopRight,progressBar=False,duracion=15,onclick=None,ondoubleclick=None,onrightclick=None):
@@ -114,5 +116,21 @@ class notificator(QObject):
 
     def close(self):
         self.destroy()
+
+    def importFonts(self):
+        from PyQt5.QtGui import QFontDatabase
+        """ Import all roboto fonts to be used at application """
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Black.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-BlackItalic.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Bold.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-BoldItalic.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Italic.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Light.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-LightItalic.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Medium.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-MediumItalic.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Regular.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-Thin.ttf")
+        QFontDatabase.addApplicationFont(":/source/fonts/Roboto-ThinItalic.ttf")
 
 

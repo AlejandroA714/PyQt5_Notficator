@@ -249,8 +249,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>271</width>
-         <height>64</height>
+         <width>254</width>
+         <height>77</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="_2">
@@ -369,7 +369,6 @@
   </layout>
  </widget>
  <resources>
-  <include location="../resources/resources.qrc"/>
   <include location="../resources/resources.qrc"/>
  </resources>
  <connections/>

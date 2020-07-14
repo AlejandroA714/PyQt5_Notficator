@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'pyqt5-notificator',
   packages = ['notificator','notificator.alingments','notificator.resources','notificator.UI'],
-  version = '1.0.10',
+  version = '1.0.12',
   license='MIT',
   description = 'pyqt5_notificator is a module to generate pyqt5 desktop notifications',
   author = 'Alejandro Alejo',
