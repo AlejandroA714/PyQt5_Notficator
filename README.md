@@ -10,7 +10,7 @@ use:
 
 fron notificator import notificator
 
-from notificator.alingmentes import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight # just import waht need
+from notificator.alingmentes import TopLeft,TopCenter,TopRight,BottomLeft,BottomCenter,BottomRight # just import what you need
 
 instance
 
